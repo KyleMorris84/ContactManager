@@ -18,7 +18,7 @@ Each record is a contact with 4 fields:
 -   Postcode
 -   Date of birth
 
-When the application starts we need to load 100,000 records into the database.
+When the application starts we need to load 125,000 records into the database.
 
 ## API Layer
 
