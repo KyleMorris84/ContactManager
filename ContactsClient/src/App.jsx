@@ -10,8 +10,10 @@ export default function App() {
   const [page, setPage] = useState(0)
   var updatedRecords = useRef([])
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   async function save() {
-    var response = await fetch(`https://localhost:7288/api/contacts`, {
+    var response = await fetch(`${apiUrl}/api/contacts`, {
       method: "POST",
       body: JSON.stringify(updatedRecords.current),
       headers: {

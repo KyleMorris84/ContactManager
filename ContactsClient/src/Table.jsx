@@ -9,6 +9,8 @@ function parseDate(date) {
 
 export default function Table({ page, setPage, updatedRecords }) {
 
+    const apiUrl = import.meta.env.VITE_API_URL;
+
     const [colOrdering, setColOrdering] = useState({})
     const [data, setData] = useState([])
 
@@ -26,7 +28,7 @@ export default function Table({ page, setPage, updatedRecords }) {
         else if (colOrdering.direction == "desc") sort="Descending"
         else sort="Ascending"
 
-        var response = await fetch(`https://localhost:7288/api/contacts?pageSize=100&page=${page}&col=${col}&sort=${sort}`)
+        var response = await fetch(`${apiUrl}/contacts?pageSize=100&page=${page}&col=${col}&sort=${sort}`)
         const responseData = await response.json()
         setData(responseData)
         
