@@ -18,6 +18,24 @@ public class ContactsRepository : IContactsRepository
         _contactsDbContext.SaveChanges();
     }
 
+    public void AddContacts(IEnumerable<Contact> contacts)
+    {
+        var newContacts = contacts.Where(c => c.Id == null);
+        var existingContacts = contacts.Where(c => c.Id != null);
+
+        if (existingContacts.Any())
+        {
+            _contactsDbContext.Contacts.UpdateRange(contacts);
+        }
+
+        if (newContacts.Any())
+        {
+            _contactsDbContext.Contacts.AddRange(contacts);
+        }
+        
+        _contactsDbContext.SaveChanges();
+    }
+
     public void DeleteContact(int id)
     {
         _contactsDbContext.Contacts.Where(c => c.Id == id).ExecuteDelete();

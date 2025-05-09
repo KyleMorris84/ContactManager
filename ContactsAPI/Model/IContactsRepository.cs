@@ -6,6 +6,7 @@ public interface IContactsRepository
     public IEnumerable<Contact>? GetContactsByPage(int pageSize, int page, Column col, Sort sort);
     public Contact? GetContactById(int id);
     public void AddContact(Contact contact);
+    public void AddContacts(IEnumerable<Contact> contacts);
     public void UpdateContact(Contact contact);
     public void DeleteContact(int id);
 }

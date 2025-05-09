@@ -24,4 +24,11 @@ public class ContactsController : Controller
     {
         return _contactsRepository.GetContactsByPage(pageSize, page, col, sort);
     }
+
+    [HttpPost("contacts")]
+    public ActionResult AddContacts(IEnumerable<Contact> contacts)
+    {
+        _contactsRepository.AddContacts(contacts);
+        return Ok();
+    }
 }
