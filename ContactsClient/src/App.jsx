@@ -13,7 +13,7 @@ export default function App() {
   const apiUrl = import.meta.env.VITE_API_URL;
 
   async function save() {
-    var response = await fetch(`${apiUrl}/api/contacts`, {
+    var response = await fetch(`${apiUrl}/contacts`, {
       method: "POST",
       body: JSON.stringify(updatedRecords.current),
       headers: {
